@@ -14,6 +14,7 @@ module DoorkeeperMongodb
         included do
           has_many_options = {
             dependent: :delete,
+            inverse_of: :application,
           }
 
           # Mongoid7+ uses :delete_all instead of :delete
