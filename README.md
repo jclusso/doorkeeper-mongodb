@@ -38,7 +38,7 @@ Set the ORM configuration:
 
 ```ruby
 Doorkeeper.configure do
-  orm :mongoid8 # or any other version of mongoid
+  orm :mongoid9 # or any other version of mongoid
 end
 ```
 

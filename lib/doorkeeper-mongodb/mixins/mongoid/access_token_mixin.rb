@@ -28,7 +28,7 @@ module DoorkeeperMongodb
             belongs_to_opts[:class_name] = Doorkeeper.config.application_class
           end
 
-          # optional associations added in Mongoid 6
+          # optional associations added in Mongoid 6+
           belongs_to_opts[:optional] = true if ::Mongoid::VERSION[0].to_i >= 6
 
           belongs_to :application, belongs_to_opts
