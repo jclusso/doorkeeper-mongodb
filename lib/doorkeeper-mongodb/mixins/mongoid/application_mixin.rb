@@ -14,10 +14,9 @@ module DoorkeeperMongodb
         included do
           has_many_options = {
             dependent: :delete,
-
           }
 
-          # Mongoid7 dropped :delete option
+          # Mongoid7+ uses :delete_all instead of :delete
           has_many_options[:dependent] = :delete_all if ::Mongoid::VERSION[0].to_i >= 7
 
           # Doorkeeper 5.3 has custom classes for defining OAuth roles

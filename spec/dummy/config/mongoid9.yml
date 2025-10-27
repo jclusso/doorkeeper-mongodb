@@ -1,7 +1,7 @@
 development:
   clients:
     default:
-      database: doorkeeper-mongoid8-development
+      database: doorkeeper-mongoid9-development
       hosts:
         - localhost:27017
       options:
@@ -11,7 +11,7 @@ development:
 test:
   clients:
     default:
-      database: doorkeeper-mongoid8-test
+      database: doorkeeper-mongoid9-test
       hosts:
         - localhost:27017
       options:

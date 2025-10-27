@@ -27,13 +27,17 @@ module DoorkeeperMongodb
             belongs_to_opts[:class_name] = Doorkeeper.config.application_class
           end
 
-          # optional associations added in Mongoid 6
+          # optional associations added in Mongoid 6+
           belongs_to_opts[:optional] = true if ::Mongoid::VERSION[0].to_i >= 6
 
           belongs_to :application, belongs_to_opts
 
           if Doorkeeper.configuration.try(:polymorphic_resource_owner?)
-            belongs_to :resource_owner, polymorphic: true
+            opts = { polymorphic: true }
+
+            opts[:optional] = true if ::Mongoid::VERSION[0].to_i >= 6
+
+            belongs_to :resource_owner, opts
           end
 
           validates_presence_of :resource_owner_id, :application_id, :token,
